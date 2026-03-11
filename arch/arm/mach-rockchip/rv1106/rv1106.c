@@ -533,7 +533,7 @@ int arch_cpu_init(void)
 	writel(0x00000001, CSI_PHY_BASE + CSI_DPHY_PATH0_MODE);
 	writel(0x00000001, CSI_PHY_BASE + CSI_DPHY_PATH1_MODE);
 	/* Set GPIO4_C0 GPIO4C1 of SARADC to default GPIO Input 1V8 Only mode */
-	writel(0x000c000c, GPIO4_IOC_BASE + GPIO4_IOC_SARADC_IO_CON);
+	writel(0x600c600c, GPIO4_IOC_BASE + GPIO4_IOC_SARADC_IO_CON);
 
 #endif
 	/* reset sdmmc0 to prevent power leak */
