@@ -142,9 +142,12 @@ static void *fit_get_blob(struct blk_desc *dev_desc,
 {
 	__maybe_unused int conf_noffset;
 	disk_partition_t part;
-	char *part_name = PART_BOOT;
+	char *part_name = env_get("boot_partition");
 	void *fit, *fdt;
 	int blk_num;
+
+	if (!part_name)
+		part_name = PART_BOOT;
 
 #ifndef CONFIG_ANDROID_AB
 	if (rockchip_get_boot_mode() == BOOT_MODE_RECOVERY)
